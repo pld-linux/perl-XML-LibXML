@@ -30,6 +30,7 @@ License:	GPL
 Group:		Development/Languages/Perl
 #Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 Source0:	http://www.cpan.org/authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{_ver}.tar.gz
+# Source0-md5:	888d33be26b89ead449b2995a1e2adac
 Patch0:		%{name}-Makefile.patch
 BuildRequires:	libxml2-devel >= 2.4.8
 BuildRequires:	perl-XML-LibXML-Common
