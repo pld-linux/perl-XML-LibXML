@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_tests - perform "make test" (needs working, not busy /dev/audio!)
+# _with_tests - perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
@@ -24,7 +24,7 @@ Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl XML::LibXML
 Summary(zh_CN):	XML::LibXML Perl Ä£¿é
 Name:		perl-%{pdir}-%{pnam}
 Version:	1.53
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -75,6 +75,7 @@ wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 perl Makefile.PL
 %{__make} OPTIMIZE="%{rpmcflags}"
 
+# dtd test fails for unknown reason
 %{?_with_tests:%{__make} test}
 
 %install
@@ -105,9 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes README
 %{perl_sitearch}/XML/LibXML.pm
-%dir %{perl_sitearch}/XML/LibXML
 %{perl_sitearch}/XML/LibXML/[^S]*.pm
-%dir %{perl_sitearch}/auto/XML/LibXML
 %{perl_sitearch}/auto/XML/LibXML/LibXML.bs
 %attr(755,root,root) %{perl_sitearch}/auto/XML/LibXML/LibXML.so
 %{_mandir}/man3/XML::LibXML.3pm.gz
