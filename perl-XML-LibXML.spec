@@ -35,6 +35,7 @@ BuildRequires:	perl-XML-NamespaceSupport >= 1.07
 BuildRequires:	perl-XML-SAX >= 0.11
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	rpm-perlprov >= 4.0.2-56
+Requires(post,preun):	perl-XML-LibXML-SAX
 Requires:	libxml2 >= 2.4.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
