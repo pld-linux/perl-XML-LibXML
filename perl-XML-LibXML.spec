@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_tests - perform "make test"
+%bcond_with	tests	# perform "make test"
 #
 # TODO:
 # - add pod files to spec
@@ -11,25 +11,24 @@
 Summary:	XML::LibXML - Interface to the gnome libxml2 library
 Summary(pl):	XML::LibXML - Interfejs do biblioteki libxml2 z gnome
 Name:		perl-%{pdir}-%{pnam}
-%define		_ver	1.54_3
-Version:	%(echo %{_ver} | sed 's:_:\.:')
-Release:	4
+Version:	1.56
+Release:	1
 # same as perl
-License:	GPL/Artistic
+License:	GPL or Artistic
 Group:		Development/Languages/Perl
-#Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-Source0:	http://www.cpan.org/authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{_ver}.tar.gz
-# Source0-md5:	888d33be26b89ead449b2995a1e2adac
+Source0:	http://www.cpan.org/authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	e22a4d79e6afdc8965518bf8a3abb492
 Patch0:		%{name}-Makefile.patch
+Patch1:		%{name}-extern.patch
 BuildRequires:	gdome2-devel >= 0.7.3
-BuildRequires:	libxml2-devel >= 2.4.8
+BuildRequires:	libxml2-devel >= 2.5.10
 BuildRequires:	perl-XML-LibXML-Common
 BuildRequires:	perl-XML-NamespaceSupport >= 1.07
 BuildRequires:	perl-XML-SAX >= 0.11
-BuildRequires:	perl-devel >= 5.6.1
+BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
-Requires:	libxml2 >= 2.4.8
+Requires:	libxml2 >= 2.5.10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,8 +42,8 @@ do biblioteki GNOME libxml2. Daje to szybki i o du¿ych mo¿liwo¶ciach
 parser sprawdzaj±cy poprawno¶æ XML, a tak¿e wysoko wydajny DOM.
 
 %package SAX
-Summary:	XML::LibXML::SAX perl module
-Summary(pl):	Modu³ perla XML::LibXML::SAX
+Summary:	XML::LibXML::SAX Perl module - XML::LibXML direct SAX parser
+Summary(pl):	Modu³ Perla XML::LibXML::SAX - bezpo¶redni parser SAX z XML::LibXML
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}
 
@@ -63,8 +62,9 @@ parsowanie oparte na strumieniach jest bardzo prymitywne i wymaga³oby
 wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 
 %prep
-%setup -q -n %{pdir}-%{pnam}-%{_ver}
+%setup -q -n %{pdir}-%{pnam}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__perl} Makefile.PL \
@@ -73,7 +73,7 @@ wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 	OPTIMIZE="%{rpmcflags}"
 
 # dtd test fails for unknown reason
-%{?_with_tests:%{__make} test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
