@@ -23,11 +23,13 @@ Summary(sv):	XML::LibXML Perlmodul
 Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl XML::LibXML
 Summary(zh_CN):	XML::LibXML Perl Ä£¿é
 Name:		perl-%{pdir}-%{pnam}
-Version:	1.53
-Release:	3
+%define		_ver	1.54_3
+Version:	%(echo %{_ver} | sed 's:_:\.:')
+Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+#Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{_ver}.tar.gz
 Patch0:		%{name}-Makefile.patch
 BuildRequires:	libxml2-devel >= 2.4.8
 BuildRequires:	perl-XML-LibXML-Common
@@ -70,7 +72,7 @@ parsowanie oparte na strumieniach jest bardzo prymitywne i wymaga³oby
 wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 
 %prep
-%setup -q -n %{pdir}-%{pnam}-%{version}
+%setup -q -n %{pdir}-%{pnam}-%{_ver}
 %patch0 -p1
 
 %build
