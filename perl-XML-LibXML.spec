@@ -5,33 +5,20 @@
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
 %define		pnam	LibXML
-Summary:	XML::LibXML Perl module
-Summary(cs):	Modul XML::LibXML pro Perl
-Summary(da):	Perlmodul XML::LibXML
-Summary(de):	XML::LibXML Perl Modul
-Summary(es):	Módulo de Perl XML::LibXML
-Summary(fr):	Module Perl XML::LibXML
-Summary(it):	Modulo di Perl XML::LibXML
-Summary(ja):	XML::LibXML Perl ¥â¥¸¥å¡¼¥ë
-Summary(ko):	XML::LibXML ÆÞ ¸ðÁÙ
-Summary(no):	Perlmodul XML::LibXML
-Summary(pl):	Modu³ Perla XML::LibXML
-Summary(pt):	Módulo de Perl XML::LibXML
-Summary(pt_BR):	Módulo Perl XML::LibXML
-Summary(ru):	íÏÄÕÌØ ÄÌÑ Perl XML::LibXML
-Summary(sv):	XML::LibXML Perlmodul
-Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl XML::LibXML
-Summary(zh_CN):	XML::LibXML Perl Ä£¿é
+Summary:	XML::LibXML - Interface to the gnome libxml2 library
+Summary(pl):	XML::LibXML - Interfejs do biblioteki libxml2 z gnome
 Name:		perl-%{pdir}-%{pnam}
 %define		_ver	1.54_3
 Version:	%(echo %{_ver} | sed 's:_:\.:')
-Release:	3
-License:	GPL
+Release:	4
+# same as perl
+License:	GPL/Artistic
 Group:		Development/Languages/Perl
 #Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 Source0:	http://www.cpan.org/authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{_ver}.tar.gz
 # Source0-md5:	888d33be26b89ead449b2995a1e2adac
 Patch0:		%{name}-Makefile.patch
+BuildRequires:	gdome2-devel >= 0.7.3
 BuildRequires:	libxml2-devel >= 2.4.8
 BuildRequires:	perl-XML-LibXML-Common
 BuildRequires:	perl-XML-NamespaceSupport >= 1.07
@@ -102,11 +89,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post SAX
 umask 022
-perl -MXML::SAX -e "XML::SAX->add_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
+%{__perl} -MXML::SAX -e "XML::SAX->add_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
 
 %preun SAX
 umask 022
-perl -MXML::SAX -e "XML::SAX->remove_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
+%{__perl} -MXML::SAX -e "XML::SAX->remove_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
 
 %files
 %defattr(644,root,root,755)
