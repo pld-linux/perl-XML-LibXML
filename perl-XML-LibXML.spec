@@ -19,13 +19,14 @@ Summary(sv):	XML::LibXML Perlmodul
 Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl XML::LibXML
 Summary(zh_CN):	XML::LibXML Perl Ä£¿é
 Name:		perl-%{pdir}-%{pnam}
-Version:	1.51
-Release:	2
+Version:	1.52
+Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 Patch0:		%{name}-Makefile.patch
 BuildRequires:	libxml2-devel >= 2.4.8
+BuildRequires:	perl-XML-NamespaceSupport >= 1.07
 BuildRequires:	perl-XML-SAX
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	rpm-perlprov >= 4.0.2-56
@@ -46,6 +47,7 @@ parser sprawdzaj±cy poprawno¶æ XML, a tak¿e wysoko wydajny DOM.
 Summary:	XML::LibXML::SAX perl module
 Summary(pl):	Modu³ perla XML::LibXML::SAX
 Group:		Development/Languages/Perl
+Requires:	%{name} = %{version}
 
 %description SAX
 This class allows you to generate SAX2 events using LibXML. Note that
@@ -110,6 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %files SAX
 %defattr(644,root,root,755)
 %dir %{perl_sitearch}/XML/LibXML/SAX
+%{perl_sitearch}/XML/LibXML/SAX.pm
 %{perl_sitearch}/XML/LibXML/SAX/*.pm
-%{_mandir}/man3/XML::LibXML::SAX.3pm.gz
+%{_mandir}/man3/XML::LibXML::SAX.3pm*
 %{_mandir}/man3/XML::LibXML::SAX::*
