@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests	# don't perform "make test"
+%bcond_without	tests	# do not perform "make test"
 #
 # TODO:
 # - add pod files to spec
@@ -14,7 +14,7 @@ Name:		perl-%{pdir}-%{pnam}
 Version:	1.58
 Release:	1
 # same as perl
-License:	GPL or Artistic
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	4691fc436e5c0f22787f5b4a54fc56b0
@@ -68,7 +68,6 @@ export SKIP_SAX_INSTALL
 
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
-
 %{__make} \
 	OPTIMIZE="%{rpmcflags}"
 
@@ -80,7 +79,6 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
 install example/{*.pl,*.xml,*.dtd,*.xhtml} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/complex
