@@ -1,11 +1,26 @@
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	XML
-%define	pnam	LibXML
-Summary:	XML::LibXML perl module
-Summary(pl):	Modu³ perla XML::LibXML
+%define		pdir	XML
+%define		pnam	LibXML
+Summary:	XML::LibXML Perl module
+Summary(cs):	Modul XML::LibXML pro Perl
+Summary(da):	Perlmodul XML::LibXML
+Summary(de):	XML::LibXML Perl Modul
+Summary(es):	Módulo de Perl XML::LibXML
+Summary(fr):	Module Perl XML::LibXML
+Summary(it):	Modulo di Perl XML::LibXML
+Summary(ja):	XML::LibXML Perl ¥â¥¸¥å¡¼¥ë
+Summary(ko):	XML::LibXML ÆÞ ¸ðÁÙ
+Summary(no):	Perlmodul XML::LibXML
+Summary(pl):	Modu³ Perla XML::LibXML
+Summary(pt):	Módulo de Perl XML::LibXML
+Summary(pt_BR):	Módulo Perl XML::LibXML
+Summary(ru):	íÏÄÕÌØ ÄÌÑ Perl XML::LibXML
+Summary(sv):	XML::LibXML Perlmodul
+Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl XML::LibXML
+Summary(zh_CN):	XML::LibXML Perl Ä£¿é
 Name:		perl-%{pdir}-%{pnam}
 Version:	1.51
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -28,8 +43,8 @@ do biblioteki Gnome libxml2. Daje to szybki i o du¿ych mo¿liwo¶ciach
 parser sprawdzaj±cy poprawno¶æ XML, a tak¿e wysoko wydajny DOM.
 
 %package SAX
-Summary:	XML::LibXML-SAX perl module
-Summary(pl):	Modu³ perla XML::LibXML-SAX
+Summary:	XML::LibXML::SAX perl module
+Summary(pl):	Modu³ perla XML::LibXML::SAX
 Group:		Development/Languages/Perl
 
 %description SAX
@@ -69,6 +84,7 @@ install example/complex/{*.xml,*.dtd} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{v
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/complex/dtd
 install example/complex/dtd/*.dtd $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/complex/dtd
 
+
 %post SAX
 perl -MXML::SAX -e "XML::SAX->add_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
 
@@ -83,13 +99,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README PHISHS.CHANGES
 %{perl_sitearch}/XML/LibXML.pm
 %dir %{perl_sitearch}/XML/LibXML
-%{perl_sitearch}/XML/LibXML/*.pm
-%{perl_sitearch}/XML/LibXML/*.pod
+%{perl_sitearch}/XML/LibXML/[^S]*.pm
 %dir %{perl_sitearch}/auto/XML/LibXML
 %{perl_sitearch}/auto/XML/LibXML/LibXML.bs
 %attr(755,root,root) %{perl_sitearch}/auto/XML/LibXML/LibXML.so
 %{_mandir}/man3/XML::LibXML.3pm.gz
-%{_mandir}/man3/XML::LibXML::[^S][^A][^X]*
+%{_mandir}/man3/XML::LibXML::[^S]*
 %{_examplesdir}/%{name}-%{version}
 
 %files SAX
