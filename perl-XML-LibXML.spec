@@ -10,7 +10,7 @@
 %define	pnam	LibXML
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
 Summary(pl):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
-Name:		perl-%{pdir}-%{pnam}
+Name:		perl-XML-LibXML
 Version:	1.58
 Release:	1
 # same as perl
