@@ -16,7 +16,7 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	4691fc436e5c0f22787f5b4a54fc56b0
 BuildRequires:	gdome2-devel >= 0.7.3
 BuildRequires:	libxml2-devel >= 2.5.10
