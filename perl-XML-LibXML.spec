@@ -11,13 +11,13 @@
 Summary:	XML::LibXML - interface to the gnome libxml2 library
 Summary(pl):	XML::LibXML - interfejs do biblioteki libxml2 z gnome
 Name:		perl-%{pdir}-%{pnam}
-Version:	1.57
+Version:	1.58
 Release:	1
 # same as perl
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	c517b0ba2e7752768885178c7c8b7e59
+# Source0-md5:	4691fc436e5c0f22787f5b4a54fc56b0
 BuildRequires:	gdome2-devel >= 0.7.3
 BuildRequires:	libxml2-devel >= 2.5.10
 BuildRequires:	perl-XML-LibXML-Common
