@@ -3,8 +3,8 @@
 %define	pdir	XML
 %define	pnam	LibXML
 
-Summary:	XML-LibXML perl module
-Summary(pl):	Modu³ perla XML-LibXML
+Summary:	XML::LibXML perl module
+Summary(pl):	Modu³ perla XML::LibXML
 Name:		perl-%{pdir}-%{pnam}
 Version:	1.40
 Release:	1
@@ -30,8 +30,8 @@ do biblioteki Gnome libxml2. Daje to szybki i o du¿ych mo¿liwo¶ciach
 parser sprawdzaj±cy poprawno¶æ XML, a tak¿e wysoko wydajny DOM.
 
 %package SAX
-Summary:	XML-LibXML-SAX perl module
-Summary(pl):	Modu³ perla XML-LibXML-SAX
+Summary:	XML::LibXML-SAX perl module
+Summary(pl):	Modu³ perla XML::LibXML-SAX
 Group:		Development/Languages/Perl
 
 %description SAX
