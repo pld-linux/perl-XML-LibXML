@@ -1,8 +1,6 @@
 %include	/usr/lib/rpm/macros.perl
-
 %define	pdir	XML
 %define	pnam	LibXML
-
 Summary:	XML::LibXML perl module
 Summary(pl):	Modu³ perla XML::LibXML
 Name:		perl-%{pdir}-%{pnam}
@@ -12,10 +10,10 @@ License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 Patch0:		%{name}-Makefile.patch
-BuildRequires:	rpm-perlprov >= 4.0.2-56
-BuildRequires:	perl-devel >= 5.6.1
-BuildRequires:	perl-XML-SAX
 BuildRequires:	libxml2-devel >= 2.4.8
+BuildRequires:	perl-XML-SAX
+BuildRequires:	perl-devel >= 5.6.1
+BuildRequires:	rpm-perlprov >= 4.0.2-56
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:	libxml2 >= 2.4.8
 
@@ -71,8 +69,6 @@ install example/complex/{*.xml,*.dtd} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{v
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/complex/dtd
 install example/complex/dtd/*.dtd $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/complex/dtd
 
-gzip -9nf Changes README PHISHS.CHANGES
-
 %post SAX
 perl -MXML::SAX -e "XML::SAX->add_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
 
@@ -84,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc Changes README PHISHS.CHANGES
 %{perl_sitearch}/XML/LibXML.pm
 %dir %{perl_sitearch}/XML/LibXML
 %{perl_sitearch}/XML/LibXML/*.pm
