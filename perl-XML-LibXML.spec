@@ -6,7 +6,7 @@
 Summary:	XML::LibXML perl module
 Summary(pl):	Modu³ perla XML::LibXML
 Name:		perl-%{pdir}-%{pnam}
-Version:	1.40
+Version:	1.51
 Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
@@ -92,8 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_sitearch}/auto/XML/LibXML
 %{perl_sitearch}/auto/XML/LibXML/LibXML.bs
 %attr(755,root,root) %{perl_sitearch}/auto/XML/LibXML/LibXML.so
-%{_mandir}/man3/XML::LibXML.3pm.gz
-%{_mandir}/man3/XML::LibXML::[^S][^A][^X]*
+%{_mandir}/man3/*
 %{_examplesdir}/%{name}-%{version}
 
 %files SAX
