@@ -92,11 +92,13 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{perl_sitearch}/auto/XML/LibXML
 %{perl_sitearch}/auto/XML/LibXML/LibXML.bs
 %attr(755,root,root) %{perl_sitearch}/auto/XML/LibXML/LibXML.so
-%{_mandir}/man3/*
+%{_mandir}/man3/XML::LibXML.3pm.gz
+%{_mandir}/man3/XML::LibXML::[^S][^A][^X]*
 %{_examplesdir}/%{name}-%{version}
 
 %files SAX
 %defattr(644,root,root,755)
 %dir %{perl_sitearch}/XML/LibXML/SAX
 %{perl_sitearch}/XML/LibXML/SAX/*.pm
+%{_mandir}/man3/XML::LibXML::SAX.3pm.gz
 %{_mandir}/man3/XML::LibXML::SAX::*
