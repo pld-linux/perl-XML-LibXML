@@ -20,10 +20,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:	libxml2 >= 2.4.8
 
 %description
-This module implements much of the DOM Level 2 API as an 
-interface to the Gnome libxml2 library. This makes it a fast
-and highly capable validating XML parser library, as well as
-a high performance DOM.
+This module implements much of the DOM Level 2 API as an interface to
+the Gnome libxml2 library. This makes it a fast and highly capable
+validating XML parser library, as well as a high performance DOM.
+
+%description -l pl
+Ten modu³ to implementacja wiêkszo¶ci API DOM Level 2 jako interfejsu
+do biblioteki Gnome libxml2. Daje to szybki i o du¿ych mo¿liwo¶ciach
+parser sprawdzaj±cy poprawno¶æ XML, a tak¿e wysoko wydajny DOM.
 
 %package SAX
 Summary:	XML-LibXML-SAX perl module
@@ -31,13 +35,18 @@ Summary(pl):	Modu³ perla XML-LibXML-SAX
 Group:		Development/Languages/Perl
 
 %description SAX
-This class allows you to generate SAX2 events using
-LibXML. Note that this is not a stream based parser,
-instead it parses documents into a DOM and traverses the
-DOM tree. The reason being that libxml2's stream based
-parsing is extremely primitive, and would require an
-extreme amount of work to allow SAX2 parsing in a stream
-manner.
+This class allows you to generate SAX2 events using LibXML. Note that
+this is not a stream based parser, instead it parses documents into
+a DOM and traverses the DOM tree. The reason being that libxml2's
+stream based parsing is extremely primitive, and would require an
+extreme amount of work to allow SAX2 parsing in a stream manner.
+
+%description SAX -l pl
+Ta klasa pozwala generowaæ zdarzenia SAX2 przy u¿yciu LibXML2. To nie
+jest parser bazuj±cy na strumieniach - przetwarza dokumenty na DOM i
+nastêpnie wêdruje po drzewie DOM. Wynika to z faktu, ¿e w libxml2
+parsowanie oparte na strumieniach jest bardzo prymitywne i wymaga³oby
+wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
