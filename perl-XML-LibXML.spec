@@ -11,7 +11,7 @@ Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-Patch0:	%{name}-Makefile.patch
+Patch0:		%{name}-Makefile.patch
 BuildRequires:	rpm-perlprov >= 4.0.2-56
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	perl-XML-SAX
@@ -36,10 +36,10 @@ Group:		Development/Languages/Perl
 
 %description SAX
 This class allows you to generate SAX2 events using LibXML. Note that
-this is not a stream based parser, instead it parses documents into
-a DOM and traverses the DOM tree. The reason being that libxml2's
-stream based parsing is extremely primitive, and would require an
-extreme amount of work to allow SAX2 parsing in a stream manner.
+this is not a stream based parser, instead it parses documents into a
+DOM and traverses the DOM tree. The reason being that libxml2's stream
+based parsing is extremely primitive, and would require an extreme
+amount of work to allow SAX2 parsing in a stream manner.
 
 %description SAX -l pl
 Ta klasa pozwala generowaæ zdarzenia SAX2 przy u¿yciu LibXML2. To nie
