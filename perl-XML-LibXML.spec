@@ -55,7 +55,6 @@ Summary:	XML::LibXML::SAX perl module
 Summary(pl):	Modu³ perla XML::LibXML::SAX
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}
-Requires(post,preun):	perl-XML-LibXML-SAX
 
 %description SAX
 This class allows you to generate SAX2 events using LibXML. Note that
