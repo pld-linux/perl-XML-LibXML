@@ -25,7 +25,7 @@ Summary(zh_CN):	XML::LibXML Perl Ä£¿é
 Name:		perl-%{pdir}-%{pnam}
 %define		_ver	1.54_3
 Version:	%(echo %{_ver} | sed 's:_:\.:')
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 #Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -36,7 +36,7 @@ BuildRequires:	perl-XML-LibXML-Common
 BuildRequires:	perl-XML-NamespaceSupport >= 1.07
 BuildRequires:	perl-XML-SAX >= 0.11
 BuildRequires:	perl-devel >= 5.6.1
-BuildRequires:	rpm-perlprov >= 4.0.2-56
+BuildRequires:	rpm-perlprov >= 4.1-13
 Requires(post,preun):	perl-XML-LibXML-SAX
 Requires:	libxml2 >= 2.4.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -76,7 +76,8 @@ wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 %patch0 -p1
 
 %build
-%{__perl} Makefile.PL
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor 
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 # dtd test fails for unknown reason
@@ -108,10 +109,10 @@ perl -MXML::SAX -e "XML::SAX->remove_parser(q(XML::LibXML::SAX::Parser))->save_p
 %files
 %defattr(644,root,root,755)
 %doc Changes README
-%{perl_sitearch}/XML/LibXML.pm
-%{perl_sitearch}/XML/LibXML/[^S]*.pm
-%{perl_sitearch}/auto/XML/LibXML/LibXML.bs
-%attr(755,root,root) %{perl_sitearch}/auto/XML/LibXML/LibXML.so
+%{perl_vendorarch}/XML/LibXML.pm
+%{perl_vendorarch}/XML/LibXML/[^S]*.pm
+%{perl_vendorarch}/auto/XML/LibXML/LibXML.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/XML/LibXML/LibXML.so
 %{_mandir}/man3/XML::LibXML.3pm*
 %{_mandir}/man3/XML::LibXML::[^S]*
 %dir %{_examplesdir}/%{name}-%{version}
@@ -120,8 +121,8 @@ perl -MXML::SAX -e "XML::SAX->remove_parser(q(XML::LibXML::SAX::Parser))->save_p
 
 %files SAX
 %defattr(644,root,root,755)
-%dir %{perl_sitearch}/XML/LibXML/SAX
-%{perl_sitearch}/XML/LibXML/SAX.pm
-%{perl_sitearch}/XML/LibXML/SAX/*.pm
+%dir %{perl_vendorarch}/XML/LibXML/SAX
+%{perl_vendorarch}/XML/LibXML/SAX.pm
+%{perl_vendorarch}/XML/LibXML/SAX/*.pm
 %{_mandir}/man3/XML::LibXML::SAX.3pm*
 %{_mandir}/man3/XML::LibXML::SAX::*
