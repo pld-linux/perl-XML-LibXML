@@ -2,6 +2,9 @@
 # Conditional build:
 # _with_tests - perform "make test"
 #
+# TODO:
+# - add pod files to spec
+#
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
 %define		pnam	LibXML
