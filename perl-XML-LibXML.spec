@@ -11,15 +11,13 @@
 Summary:	XML::LibXML - interface to the gnome libxml2 library
 Summary(pl):	XML::LibXML - interfejs do biblioteki libxml2 z gnome
 Name:		perl-%{pdir}-%{pnam}
-Version:	1.56
+Version:	1.57
 Release:	1
 # same as perl
 License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	e22a4d79e6afdc8965518bf8a3abb492
-Patch0:		%{name}-Makefile.patch
-Patch1:		%{name}-extern.patch
+# Source0-md5:	c517b0ba2e7752768885178c7c8b7e59
 BuildRequires:	gdome2-devel >= 0.7.3
 BuildRequires:	libxml2-devel >= 2.5.10
 BuildRequires:	perl-XML-LibXML-Common
@@ -63,10 +61,10 @@ wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%patch0 -p1
-%patch1 -p1
 
 %build
+SKIP_SAX_INSTALL=true;
+export SKIP_SAX_INSTALL
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make} \
