@@ -76,7 +76,7 @@ wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 %patch0 -p1
 
 %build
-perl Makefile.PL
+%{__perl} Makefile.PL
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 # dtd test fails for unknown reason
