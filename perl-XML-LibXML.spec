@@ -24,7 +24,7 @@ Summary(uk):	Модуль для Perl XML::LibXML
 Summary(zh_CN):	XML::LibXML Perl дё©И
 Name:		perl-%{pdir}-%{pnam}
 Version:	1.53
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
