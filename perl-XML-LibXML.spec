@@ -30,12 +30,13 @@ Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 Patch0:		%{name}-Makefile.patch
 BuildRequires:	libxml2-devel >= 2.4.8
+BuildRequires:	perl-XML-LibXML-Common
 BuildRequires:	perl-XML-NamespaceSupport >= 1.07
 BuildRequires:	perl-XML-SAX >= 0.11
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	rpm-perlprov >= 4.0.2-56
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:	libxml2 >= 2.4.8
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This module implements much of the DOM Level 2 API as an interface to
@@ -92,15 +93,14 @@ install example/complex/{*.xml,*.dtd} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{v
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/complex/dtd
 install example/complex/dtd/*.dtd $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/complex/dtd
 
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post SAX
 perl -MXML::SAX -e "XML::SAX->add_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
 
 %preun SAX
 perl -MXML::SAX -e "XML::SAX->remove_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
