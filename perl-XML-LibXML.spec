@@ -30,12 +30,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This module implements much of the DOM Level 2 API as an interface to
-the Gnome libxml2 library. This makes it a fast and highly capable
+the GNOME libxml2 library. This makes it a fast and highly capable
 validating XML parser library, as well as a high performance DOM.
 
 %description -l pl
 Ten modu³ to implementacja wiêkszo¶ci API DOM Level 2 jako interfejsu
-do biblioteki Gnome libxml2. Daje to szybki i o du¿ych mo¿liwo¶ciach
+do biblioteki GNOME libxml2. Daje to szybki i o du¿ych mo¿liwo¶ciach
 parser sprawdzaj±cy poprawno¶æ XML, a tak¿e wysoko wydajny DOM.
 
 %package SAX
