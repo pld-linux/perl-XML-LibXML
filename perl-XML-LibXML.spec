@@ -1,3 +1,7 @@
+#
+# Conditional build:
+# _with_tests - perform "make test" (needs working, not busy /dev/audio!)
+#
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
 %define		pnam	LibXML
@@ -19,7 +23,7 @@ Summary(sv):	XML::LibXML Perlmodul
 Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl XML::LibXML
 Summary(zh_CN):	XML::LibXML Perl Ä£¿é
 Name:		perl-%{pdir}-%{pnam}
-Version:	1.52
+Version:	1.53
 Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
@@ -27,7 +31,7 @@ Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%
 Patch0:		%{name}-Makefile.patch
 BuildRequires:	libxml2-devel >= 2.4.8
 BuildRequires:	perl-XML-NamespaceSupport >= 1.07
-BuildRequires:	perl-XML-SAX
+BuildRequires:	perl-XML-SAX >= 0.11
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	rpm-perlprov >= 4.0.2-56
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,13 +75,14 @@ wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 perl Makefile.PL
 %{__make} OPTIMIZE="%{rpmcflags}"
 
+%{?_with_tests:%{__make} test}
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install example/{*.pl,*.xml,*.dtd,*.xhtml} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/complex
@@ -98,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README PHISHS.CHANGES
+%doc Changes README
 %{perl_sitearch}/XML/LibXML.pm
 %dir %{perl_sitearch}/XML/LibXML
 %{perl_sitearch}/XML/LibXML/[^S]*.pm
@@ -107,7 +112,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{perl_sitearch}/auto/XML/LibXML/LibXML.so
 %{_mandir}/man3/XML::LibXML.3pm.gz
 %{_mandir}/man3/XML::LibXML::[^S]*
-%{_examplesdir}/%{name}-%{version}
+%dir %{_examplesdir}/%{name}-%{version}
+%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/x*.pl
+%{_examplesdir}/%{name}-%{version}/[^x]*
 
 %files SAX
 %defattr(644,root,root,755)
