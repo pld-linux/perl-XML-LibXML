@@ -8,8 +8,8 @@
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
 %define		pnam	LibXML
-Summary:	XML::LibXML - Interface to the gnome libxml2 library
-Summary(pl):	XML::LibXML - Interfejs do biblioteki libxml2 z gnome
+Summary:	XML::LibXML - interface to the gnome libxml2 library
+Summary(pl):	XML::LibXML - interfejs do biblioteki libxml2 z gnome
 Name:		perl-%{pdir}-%{pnam}
 Version:	1.56
 Release:	1
@@ -39,7 +39,7 @@ validating XML parser library, as well as a high performance DOM.
 %description -l pl
 Ten modu³ to implementacja wiêkszo¶ci API DOM Level 2 jako interfejsu
 do biblioteki GNOME libxml2. Daje to szybki i o du¿ych mo¿liwo¶ciach
-parser sprawdzaj±cy poprawno¶æ XML, a tak¿e wysoko wydajny DOM.
+parser sprawdzaj±cy poprawno¶æ XML-a, a tak¿e wysoko wydajny DOM.
 
 %package SAX
 Summary:	XML::LibXML::SAX Perl module - XML::LibXML direct SAX parser
