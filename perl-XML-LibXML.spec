@@ -98,8 +98,10 @@ umask 022
 %{__perl} -MXML::SAX -e "XML::SAX->add_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
 
 %preun SAX
-umask 022
-%{__perl} -MXML::SAX -e "XML::SAX->remove_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
+if [ "$1" = "0" ]; then
+	umask 022
+	%{__perl} -MXML::SAX -e "XML::SAX->remove_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
+fi
 
 %files
 %defattr(644,root,root,755)
