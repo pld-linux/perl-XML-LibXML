@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	tests	# perform "make test"
+%bcond_without	tests	# don't perform "make test"
 #
 # TODO:
 # - add pod files to spec
@@ -65,12 +65,13 @@ wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 %build
 SKIP_SAX_INSTALL=true;
 export SKIP_SAX_INSTALL
+
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
+
 %{__make} \
 	OPTIMIZE="%{rpmcflags}"
 
-# dtd test fails for unknown reason
 %{?with_tests:%{__make} test}
 
 %install
