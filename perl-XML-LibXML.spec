@@ -27,6 +27,7 @@ BuildRequires:	perl-XML-LibXML-Common
 BuildRequires:	perl-XML-NamespaceSupport >= 1.07
 BuildRequires:	perl-XML-SAX >= 0.11
 BuildRequires:	perl-devel >= 5.6.1
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	libxml2 >= 2.4.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -68,7 +69,8 @@ wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 %build
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
-%{__make} OPTIMIZE="%{rpmcflags}"
+%{__make} \
+	OPTIMIZE="%{rpmcflags}"
 
 # dtd test fails for unknown reason
 %{?_with_tests:%{__make} test}
@@ -77,7 +79,8 @@ wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install example/{*.pl,*.xml,*.dtd,*.xhtml} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
@@ -102,14 +105,14 @@ umask 022
 %defattr(644,root,root,755)
 %doc Changes README
 %{perl_vendorarch}/XML/LibXML.pm
-%{perl_vendorarch}/XML/LibXML/[^S]*.pm
+%{perl_vendorarch}/XML/LibXML/[!S]*.pm
 %{perl_vendorarch}/auto/XML/LibXML/LibXML.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/XML/LibXML/LibXML.so
 %{_mandir}/man3/XML::LibXML.3pm*
-%{_mandir}/man3/XML::LibXML::[^S]*
+%{_mandir}/man3/XML::LibXML::[!S]*
 %dir %{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/x*.pl
-%{_examplesdir}/%{name}-%{version}/[^x]*
+%{_examplesdir}/%{name}-%{version}/[!x]*
 
 %files SAX
 %defattr(644,root,root,755)
