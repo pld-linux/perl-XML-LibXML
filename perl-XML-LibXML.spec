@@ -64,7 +64,7 @@ wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 
 %build
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor 
+	INSTALLDIRS=vendor
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 # dtd test fails for unknown reason
