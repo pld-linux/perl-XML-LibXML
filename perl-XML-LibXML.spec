@@ -6,8 +6,8 @@
 # - add pod files to spec
 #
 %include	/usr/lib/rpm/macros.perl
-%define		pdir	XML
-%define		pnam	LibXML
+%define	pdir	XML
+%define	pnam	LibXML
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
 Summary(pl):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-%{pdir}-%{pnam}
