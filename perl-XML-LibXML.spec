@@ -25,7 +25,7 @@ Summary(zh_CN):	XML::LibXML Perl Ä£¿é
 Name:		perl-%{pdir}-%{pnam}
 %define		_ver	1.54_3
 Version:	%(echo %{_ver} | sed 's:_:\.:')
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 #Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -37,7 +37,6 @@ BuildRequires:	perl-XML-NamespaceSupport >= 1.07
 BuildRequires:	perl-XML-SAX >= 0.11
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	rpm-perlprov >= 4.0.2-104
-Requires(post,preun):	perl-XML-LibXML-SAX
 Requires:	libxml2 >= 2.4.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -56,6 +55,7 @@ Summary:	XML::LibXML::SAX perl module
 Summary(pl):	Modu³ perla XML::LibXML::SAX
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}
+Requires(post,preun):	perl-XML-LibXML-SAX
 
 %description SAX
 This class allows you to generate SAX2 events using LibXML. Note that
@@ -100,9 +100,11 @@ install example/complex/dtd/*.dtd $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{versi
 rm -rf $RPM_BUILD_ROOT
 
 %post SAX
+umask 022
 perl -MXML::SAX -e "XML::SAX->add_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
 
 %preun SAX
+umask 022
 perl -MXML::SAX -e "XML::SAX->remove_parser(q(XML::LibXML::SAX::Parser))->save_parsers()"
 
 %files
