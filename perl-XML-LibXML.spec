@@ -43,7 +43,7 @@ parser sprawdzaj±cy poprawno¶æ XML-a, a tak¿e wysoko wydajny DOM.
 Summary:	XML::LibXML::SAX Perl module - XML::LibXML direct SAX parser
 Summary(pl):	Modu³ Perla XML::LibXML::SAX - bezpo¶redni parser SAX z XML::LibXML
 Group:		Development/Languages/Perl
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description SAX
 This class allows you to generate SAX2 events using LibXML. Note that
