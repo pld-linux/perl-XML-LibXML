@@ -8,16 +8,18 @@
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
 %define		pnam	LibXML
+%define		base_version	1.61
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
 Summary(pl):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-XML-LibXML
-Version:	1.58
-Release:	2
+Version:	%{base_version}_003
+%define		ver		%(echo %version | tr -d _)
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/P/PH/PHISH/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	4691fc436e5c0f22787f5b4a54fc56b0
+Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{ver}.tar.gz
+# Source0-md5:	2196bc8db0f2047c432a90c345ca9c63
 BuildRequires:	gdome2-devel >= 0.7.3
 BuildRequires:	libxml2-devel >= 2.5.10
 BuildRequires:	perl-XML-LibXML-Common
@@ -60,7 +62,7 @@ parsowanie oparte na strumieniach jest bardzo prymitywne i wymaga³oby
 wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
 
 %prep
-%setup -q -n %{pdir}-%{pnam}-%{version}
+%setup -q -n %{pdir}-%{pnam}-%{base_version}
 
 %build
 SKIP_SAX_INSTALL=true;
@@ -109,6 +111,7 @@ fi
 %attr(755,root,root) %{perl_vendorarch}/auto/XML/LibXML/LibXML.so
 %{_mandir}/man3/XML::LibXML.3pm*
 %{_mandir}/man3/XML::LibXML::[!S]*
+%{_mandir}/man3/XML::LibXML::S[!A]*
 %dir %{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/x*.pl
 %{_examplesdir}/%{name}-%{version}/[!x]*
