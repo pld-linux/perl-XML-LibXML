@@ -10,7 +10,7 @@
 %define		pnam	LibXML
 %define		base_version	1.61
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
-Summary(pl):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
+Summary(pl.UTF-8):   XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-XML-LibXML
 Version:	%{base_version}_003
 %define		ver		%(echo %version | tr -d _)
@@ -36,14 +36,14 @@ This module implements much of the DOM Level 2 API as an interface to
 the GNOME libxml2 library. This makes it a fast and highly capable
 validating XML parser library, as well as a high performance DOM.
 
-%description -l pl
-Ten modu³ to implementacja wiêkszo¶ci API DOM Level 2 jako interfejsu
-do biblioteki GNOME libxml2. Daje to szybki i o du¿ych mo¿liwo¶ciach
-parser sprawdzaj±cy poprawno¶æ XML-a, a tak¿e wysoko wydajny DOM.
+%description -l pl.UTF-8
+Ten moduÅ‚ to implementacja wiÄ™kszoÅ›ci API DOM Level 2 jako interfejsu
+do biblioteki GNOME libxml2. Daje to szybki i o duÅ¼ych moÅ¼liwoÅ›ciach
+parser sprawdzajÄ…cy poprawnoÅ›Ä‡ XML-a, a takÅ¼e wysoko wydajny DOM.
 
 %package SAX
 Summary:	XML::LibXML::SAX Perl module - XML::LibXML direct SAX parser
-Summary(pl):	Modu³ Perla XML::LibXML::SAX - bezpo¶redni parser SAX z XML::LibXML
+Summary(pl.UTF-8):   ModuÅ‚ Perla XML::LibXML::SAX - bezpoÅ›redni parser SAX z XML::LibXML
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -54,12 +54,12 @@ DOM and traverses the DOM tree. The reason being that libxml2's stream
 based parsing is extremely primitive, and would require an extreme
 amount of work to allow SAX2 parsing in a stream manner.
 
-%description SAX -l pl
-Ta klasa pozwala generowaæ zdarzenia SAX2 przy u¿yciu LibXML2. To nie
-jest parser bazuj±cy na strumieniach - przetwarza dokumenty na DOM i
-nastêpnie wêdruje po drzewie DOM. Wynika to z faktu, ¿e w libxml2
-parsowanie oparte na strumieniach jest bardzo prymitywne i wymaga³oby
-wiele pracy, aby umo¿liwiæ strumieniowe parsowanie SAX2.
+%description SAX -l pl.UTF-8
+Ta klasa pozwala generowaÄ‡ zdarzenia SAX2 przy uÅ¼yciu LibXML2. To nie
+jest parser bazujÄ…cy na strumieniach - przetwarza dokumenty na DOM i
+nastÄ™pnie wÄ™druje po drzewie DOM. Wynika to z faktu, Å¼e w libxml2
+parsowanie oparte na strumieniach jest bardzo prymitywne i wymagaÅ‚oby
+wiele pracy, aby umoÅ¼liwiÄ‡ strumieniowe parsowanie SAX2.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{base_version}
