@@ -10,7 +10,7 @@
 %define		pnam	LibXML
 %define		base_version	1.61
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
-Summary(pl.UTF-8):   XML::LibXML - interfejs do biblioteki libxml2 z GNOME
+Summary(pl.UTF-8):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-XML-LibXML
 Version:	%{base_version}_003
 %define		ver		%(echo %version | tr -d _)
@@ -43,7 +43,7 @@ parser sprawdzający poprawność XML-a, a także wysoko wydajny DOM.
 
 %package SAX
 Summary:	XML::LibXML::SAX Perl module - XML::LibXML direct SAX parser
-Summary(pl.UTF-8):   Moduł Perla XML::LibXML::SAX - bezpośredni parser SAX z XML::LibXML
+Summary(pl.UTF-8):	Moduł Perla XML::LibXML::SAX - bezpośredni parser SAX z XML::LibXML
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
