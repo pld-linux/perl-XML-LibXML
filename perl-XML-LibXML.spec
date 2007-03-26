@@ -2,24 +2,21 @@
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 #
-# TODO:
-# - add pod files to spec
-#
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
 %define		pnam	LibXML
-%define		base_version	1.61
+%define		base_version	1.62
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
 Summary(pl.UTF-8):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-XML-LibXML
-Version:	%{base_version}_003
-%define		ver		%(echo %version | tr -d _)
+Version:	%{base_version}_001
+%define	ver	%(echo %{version} | tr -d _)
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{ver}.tar.gz
-# Source0-md5:	2196bc8db0f2047c432a90c345ca9c63
+# Source0-md5:	01655a90b3f44e48efd486ac58c89cd6
 BuildRequires:	gdome2-devel >= 0.7.3
 BuildRequires:	libxml2-devel >= 2.5.10
 BuildRequires:	perl-XML-LibXML-Common
