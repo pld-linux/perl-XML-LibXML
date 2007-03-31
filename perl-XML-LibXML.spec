@@ -15,8 +15,9 @@ Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{ver}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{ver}.tar.gz
 # Source0-md5:	01655a90b3f44e48efd486ac58c89cd6
+URL:		http://search.cpan.org/dist/XML-LibXML/
 BuildRequires:	gdome2-devel >= 0.7.3
 BuildRequires:	libxml2-devel >= 2.5.10
 BuildRequires:	perl-XML-LibXML-Common
