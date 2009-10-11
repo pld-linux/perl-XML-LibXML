@@ -9,7 +9,7 @@ Summary:	XML::LibXML - interface to the GNOME libxml2 library
 Summary(pl.UTF-8):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-XML-LibXML
 Version:	1.70
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -27,6 +27,7 @@ BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	libxml2 >= 2.5.10
 Provides:	perl-XML-LibXML-XPathContext = %{version}
 Obsoletes:	perl-XML-LibXML-XPathContext <= 0:0.07
+Obsoletes:	perl-XML-LibXML-Common
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
