@@ -16,17 +16,16 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	33d4294f708e20c298cfe534d1166844
 URL:		http://search.cpan.org/dist/XML-LibXML/
-BuildRequires:	gdome2-devel >= 0.7.3
+%{?with_tests:BuildRequires:	iconv}
 BuildRequires:	libxml2-devel >= 2.5.10
 BuildRequires:	perl-XML-NamespaceSupport >= 1.07
 BuildRequires:	perl-XML-SAX >= 0.11
 BuildRequires:	perl-devel >= 1:5.8.0
-BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	libxml2 >= 2.5.10
 Provides:	perl-XML-LibXML-XPathContext = %{version}
-Obsoletes:	perl-XML-LibXML-XPathContext <= 0:0.07
 Obsoletes:	perl-XML-LibXML-Common
+Obsoletes:	perl-XML-LibXML-XPathContext <= 0:0.07
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
