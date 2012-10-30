@@ -8,21 +8,27 @@
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
 Summary(pl.UTF-8):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-XML-LibXML
-Version:	1.90
+Version:	2.0008
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	4831d5fcda76f3f3ac456e5973f017ed
+# Source0-md5:	d2bb8b6453574a47b46e3329902bde2d
 URL:		http://search.cpan.org/dist/XML-LibXML/
-%{?with_tests:BuildRequires:	iconv}
-BuildRequires:	libxml2-devel >= 2.5.10
+BuildRequires:	libxml2-devel >= 1:2.7.2
+BuildRequires:	perl-ExtUtils-MakeMaker >= 6.56
 BuildRequires:	perl-XML-NamespaceSupport >= 1.07
 BuildRequires:	perl-XML-SAX >= 0.11
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-Requires:	libxml2 >= 2.5.10
+%if %{with tests}
+BuildRequires:	iconv
+BuildRequires:	perl-Test-Simple
+%endif
+Requires:	libxml2 >= 1:2.7.2
+Requires:	perl-XML-NamespaceSupport >= 1.07
+Requires:	perl-XML-SAX >= 0.11
 Provides:	perl-XML-LibXML-XPathContext = %{version}
 Obsoletes:	perl-XML-LibXML-Common
 Obsoletes:	perl-XML-LibXML-XPathContext <= 0:0.07
@@ -35,12 +41,12 @@ validating XML parser library, as well as a high performance DOM.
 
 %description -l pl.UTF-8
 Ten moduł to implementacja większości API DOM Level 2 jako interfejsu
-do biblioteki GNOME libxml2. Daje to szybki i o dużych możliwościach
-parser sprawdzający poprawność XML-a, a także wysoko wydajny DOM.
+do biblioteki GNOME libxml2. Daje to szybki i mający duże możliwości
+analizator sprawdzający poprawność XML-a, a także wysoko wydajny DOM.
 
 %package SAX
 Summary:	XML::LibXML::SAX Perl module - XML::LibXML direct SAX parser
-Summary(pl.UTF-8):	Moduł Perla XML::LibXML::SAX - bezpośredni parser SAX z XML::LibXML
+Summary(pl.UTF-8):	Moduł Perla XML::LibXML::SAX - bezpośredni analizator SAX z XML::LibXML
 Group:		Development/Languages/Perl
 Requires:	%{name} = %{version}-%{release}
 
@@ -53,10 +59,10 @@ amount of work to allow SAX2 parsing in a stream manner.
 
 %description SAX -l pl.UTF-8
 Ta klasa pozwala generować zdarzenia SAX2 przy użyciu LibXML2. To nie
-jest parser bazujący na strumieniach - przetwarza dokumenty na DOM i
+jest analizator oparty na strumieniach - przetwarza dokumenty na DOM i
 następnie wędruje po drzewie DOM. Wynika to z faktu, że w libxml2
-parsowanie oparte na strumieniach jest bardzo prymitywne i wymagałoby
-wiele pracy, aby umożliwić strumieniowe parsowanie SAX2.
+analiza oparta na strumieniach jest bardzo prymitywna i wymagałaby
+wiele pracy, aby umożliwić strumieniową analizę SAX2.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -87,6 +93,9 @@ install example/complex/{*.xml,*.dtd} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{v
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/complex/dtd
 install example/complex/dtd/*.dtd $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/complex/dtd
 
+# mans are provided
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorarch}/XML/{LibXML.pod,LibXML/*.pod,LibXML/SAX/*.pod}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -102,7 +111,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
+%doc Changes LICENSE README TODO
 %{perl_vendorarch}/XML/LibXML.pm
 %dir %{perl_vendorarch}/XML/LibXML
 %{perl_vendorarch}/XML/LibXML/[!S]*.pm
