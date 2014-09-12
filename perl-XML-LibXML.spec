@@ -116,7 +116,6 @@ fi
 %dir %{perl_vendorarch}/XML/LibXML
 %{perl_vendorarch}/XML/LibXML/[!S]*.pm
 %dir %{perl_vendorarch}/auto/XML/LibXML
-%{perl_vendorarch}/auto/XML/LibXML/LibXML.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/XML/LibXML/LibXML.so
 %{_mandir}/man3/XML::LibXML.3pm*
 %{_mandir}/man3/XML::LibXML::[!S]*
