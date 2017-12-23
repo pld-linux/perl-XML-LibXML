@@ -2,21 +2,25 @@
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 #
+
+# see Makefile.PL /blacklist, choose first OK version to ensure skipping all broken releases
+%define	libxml2_ver	1:2.9.6
+
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
 %define		pnam	LibXML
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
 Summary(pl.UTF-8):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-XML-LibXML
-Version:	2.0118
-Release:	3
+Version:	2.0132
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	da8d61a5d0d1bfd8d46814e376d33f58
+# Source0-md5:	43546fd9a3974f19323f9fb04861ece9
 URL:		http://search.cpan.org/dist/XML-LibXML/
-BuildRequires:	libxml2-devel >= 1:2.7.2
+BuildRequires:	libxml2-devel >= %{libxml2_ver}
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.56
 BuildRequires:	perl-XML-NamespaceSupport >= 1.07
 BuildRequires:	perl-XML-SAX >= 0.11
@@ -26,7 +30,7 @@ BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	iconv
 BuildRequires:	perl-Test-Simple
 %endif
-Requires:	libxml2 >= 1:2.7.2
+Requires:	libxml2 >= %{libxml2_ver}
 Requires:	perl-XML-NamespaceSupport >= 1.07
 Requires:	perl-XML-SAX >= 0.11
 Provides:	perl-XML-LibXML-XPathContext = %{version}
