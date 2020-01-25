@@ -6,7 +6,6 @@
 # see Makefile.PL /blacklist, choose first OK version to ensure skipping all broken releases
 %define	libxml2_ver	1:2.9.6
 
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	XML
 %define		pnam	LibXML
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
