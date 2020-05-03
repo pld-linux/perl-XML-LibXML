@@ -11,23 +11,30 @@
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
 Summary(pl.UTF-8):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-XML-LibXML
-Version:	2.0132
-Release:	4
+Version:	2.0204
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	43546fd9a3974f19323f9fb04861ece9
-URL:		http://search.cpan.org/dist/XML-LibXML/
+# Source0-md5:	b0e1783ef546610485186864c0f1be55
+URL:		https://metacpan.org/release/XML-LibXML
 BuildRequires:	libxml2-devel >= %{libxml2_ver}
+BuildRequires:	perl-Alien-Libxml2 >= 0.14
+# Alien::Base::Wrapper
+BuildRequires:	perl-Alien-Base >= 0.64_01
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.56
-BuildRequires:	perl-XML-NamespaceSupport >= 1.07
-BuildRequires:	perl-XML-SAX >= 0.11
-BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-devel >= 1:5.8.1
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	iconv
+BuildRequires:	perl(Exporter) >= 5.57
+BuildRequires:	perl-Encode
+BuildRequires:	perl-Scalar-List-Utils
 BuildRequires:	perl-Test-Simple
+BuildRequires:	perl-XML-NamespaceSupport >= 1.07
+BuildRequires:	perl-XML-SAX >= 0.11
 %endif
 Requires:	libxml2 >= %{libxml2_ver}
 Requires:	perl-XML-NamespaceSupport >= 1.07
