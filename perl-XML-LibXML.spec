@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests	# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 
 # see Makefile.PL /blacklist, choose first OK version to ensure skipping all broken releases
@@ -11,13 +11,13 @@
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
 Summary(pl.UTF-8):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-XML-LibXML
-Version:	2.0207
-Release:	4
+Version:	2.0208
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	d943c3ff20e19c376f08adcbc4158019
+# Source0-md5:	4cda143b948e1550c7fba4a1133cc6ad
 URL:		https://metacpan.org/release/XML-LibXML
 BuildRequires:	libxml2-devel >= %{libxml2_ver}
 BuildRequires:	perl-Alien-Libxml2 >= 0.14
