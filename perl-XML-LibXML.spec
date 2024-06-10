@@ -11,13 +11,13 @@
 Summary:	XML::LibXML - interface to the GNOME libxml2 library
 Summary(pl.UTF-8):	XML::LibXML - interfejs do biblioteki libxml2 z GNOME
 Name:		perl-XML-LibXML
-Version:	2.0209
+Version:	2.0210
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	4c94dffff432bcf6cae8a0bfd9e64417
+# Source0-md5:	d2bad7f395716a6f57abde538d47008c
 URL:		https://metacpan.org/dist/XML-LibXML
 BuildRequires:	libxml2-devel >= %{libxml2_ver}
 BuildRequires:	perl-Alien-Libxml2 >= 0.14
