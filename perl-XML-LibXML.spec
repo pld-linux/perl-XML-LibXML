@@ -18,6 +18,8 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	d2bad7f395716a6f57abde538d47008c
+# https://github.com/shlomif/perl-XML-LibXML/pull/87
+Patch0:		XML-LibXML-libxml2-2.13-tests.patch
 URL:		https://metacpan.org/dist/XML-LibXML
 BuildRequires:	libxml2-devel >= %{libxml2_ver}
 BuildRequires:	perl-Alien-Libxml2 >= 0.14
@@ -76,6 +78,7 @@ wiele pracy, aby umożliwić strumieniową analizę SAX2.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
+%patch0 -p1
 
 %build
 SKIP_SAX_INSTALL=true;
