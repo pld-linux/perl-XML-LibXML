@@ -78,7 +78,7 @@ wiele pracy, aby umożliwić strumieniową analizę SAX2.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 SKIP_SAX_INSTALL=true;
