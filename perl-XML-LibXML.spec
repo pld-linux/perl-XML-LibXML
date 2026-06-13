@@ -16,7 +16,7 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/XML/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	https://www.cpan.org/modules/by-authors/id/T/TO/TODDR/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	7135bdef80f72a278ca65eb8e2dc13b6
 URL:		https://metacpan.org/dist/XML-LibXML
 BuildRequires:	libxml2-devel >= %{libxml2_ver}
